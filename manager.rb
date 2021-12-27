@@ -8,14 +8,15 @@ class Manager < Employee
     end
 
     def bonus(multiplier)
-        super + @employees.sum {|employee| employee.salary * multiplier}
+        @employees.sum {|employee| employee.salary} * multiplier
     end
 end
 
 david = Employee.new("david", "TA", 10000, "darren")
 shawna = Employee.new("shawna", "TA", 12000, "darren")
 darren = Manager.new("darren", "TA Manager", 78000, "ned", [david, shawna])
-ned = Manager.new("ned", "Founder", 1000000, nil, [darren])
+
+ned = Manager.new("ned", "Founder", 1000000, nil, [darren, david, shawna])
 
 
 
