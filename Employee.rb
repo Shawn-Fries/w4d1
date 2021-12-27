@@ -8,8 +8,12 @@ class Employee
         @boss = boss
     end
 
-    def employees(name)
-        @boss = Hash.new(0)
-        
+    def bonus(multiplier)
+        @salary * multiplier
     end
+
+    # def employees(name)
+    #     @boss = Hash.new(0)
+        
+    # end
 end
