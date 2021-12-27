@@ -7,7 +7,8 @@ class Board
     end
 
     def [](pos)
-        row, col = pos
+        # row, col = pos
+        @rows[pos.first][pos.last]
     end
 
     def []=(pos, value)
@@ -24,8 +25,9 @@ class Board
 
     def valid_pos?(pos)
         row, col = pos
-        return false if row < 0 or row > 8
-        return false if col < 0 or col > 8
+        return false if row < 0 or row > 7
+        return false if col < 0 or col > 7
+        true
     end
 
     def add_piece(piece, pos)
