@@ -5,7 +5,7 @@ require_relative "queen.rb"
 require_relative "king.rb"
 require_relative "knight.rb"
 require_relative "pawn.rb"
-class Board
+class Board 
     attr_reader :rows
 
     def initialize
@@ -67,9 +67,11 @@ class Board
     def move_piece(start_pos, end_pos)
         raise "no piece in that location" if @rows[start_pos.first][start_pos.last] == nil
         raise "invalid move" unless valid_pos?(end_pos)
-        @rows[end_pos.first][end_pos.last] = @rows[start_pos.first][start_pos.last]
-        @rows[start_pos.first][start_pos.last] = nil
 
+        if @rows[start_pos.first][start_pos.last].moves.include?([@pos])
+            @rows[end_pos.first][end_pos.last] = @rows[start_pos.first][start_pos.last]
+            @rows[start_pos.first][start_pos.last] = nil
+        end
     end
 
     def valid_pos?(pos)
