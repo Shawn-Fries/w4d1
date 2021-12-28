@@ -1,8 +1,13 @@
+require_relative "piece.rb"
+require_relative "Rook.rb"
 class Board
-
+    attr_reader :rows
 
     def initialize
         @rows = Array.new(8){Array.new(8)}
+        p @rows
+        @rows[0][0] = Rook.new(:white, self, [0,0])
+
 
     end
 
@@ -12,7 +17,7 @@ class Board
     end
 
     def []=(pos, value)
-        pos = [value]
+        @rows[pos] = value
     end
 
     def move_piece(color, start_pos, end_pos)
@@ -31,6 +36,6 @@ class Board
     end
 
     def add_piece(piece, pos)
-        pos = [piece]
+        @board[pos] = piece
     end
 end

@@ -1,4 +1,6 @@
 require_relative "chess1/slideable.rb"
+require_relative "piece.rb"
+
 class Rook < Piece
     include Slideable
     attr_reader :color, :pos
