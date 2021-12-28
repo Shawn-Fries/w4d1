@@ -1,5 +1,5 @@
 require_relative "chess1/slideable.rb"
-class Queen < Piece
+class Rook < Piece
     include slideable
     attr_reader :color, :pos
     def initialize(color, board, pos)
@@ -7,11 +7,11 @@ class Queen < Piece
     end
 
     def symbol
-        :Q
+        :R
         # self.color
     end
 
     def move_dirs(pos)
-        ["horizonal"]
+        ["horizontal"]
     end
 end
