@@ -1,5 +1,27 @@
 module Slideable
     
+HORIZONTAL_DIRS = [
+    [:dx, :dy],
+    [:dx, :dy],
+    [:dx, :dy],
+    [:dx, :dy]
+].freeze
+
+DIAGONAL_DIRS = [
+    [:dx, :dy],
+    [:dx, :dy],
+    [:dx, :dy],
+    [:dx, :dy]
+].freeze
+
+def horizontal_dirs
+    horizontal_dirs
+end
+
+def diagonal_dirs
+    diagonal_dirs
+end
+
 def moves
     moves = []
     if move_dirs.include?("horizontal")

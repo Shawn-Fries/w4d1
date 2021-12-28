@@ -12,6 +12,6 @@ class Queen < Piece
     end
 
     def move_dirs(pos)
-        ["horizonal"]
+        ["horizontal", "diagonal"]
     end
 end
