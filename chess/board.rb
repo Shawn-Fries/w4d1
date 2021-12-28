@@ -1,5 +1,8 @@
 require_relative "piece.rb"
 require_relative "Rook.rb"
+require_relative "bishop.rb"
+require_relative "queen.rb"
+require_relative "king.rb"
 class Board
     attr_reader :rows
 
@@ -21,7 +24,31 @@ class Board
         @rows[0][3] = Queen.new(:white, self, [0,3])
         @rows[7][3] = Queen.new(:black, self, [7,3])
 
+        @rows[0][4] = King.new(:white, self, [0,4])
+        @rows[7][4] = King.new(:black, self, [7,4])
 
+        @rows[0][1] = Knight.new(:white, self, [0,1])
+        @rows[0][6] = Knight.new(:white, self, [0,6])
+        @rows[7][1] = Knight.new(:black, self, [7,1])
+        @rows[7][6] = Knight.new(:black, self, [7,6])
+
+        @rows[1][0] = Pawn.new(:white, self, [1,0])
+        @rows[1][1] = Pawn.new(:white, self, [1,1])
+        @rows[1][2] = Pawn.new(:white, self, [1,2])
+        @rows[1][3] = Pawn.new(:white, self, [1,3])
+        @rows[1][4] = Pawn.new(:white, self, [1,4])
+        @rows[1][5] = Pawn.new(:white, self, [1,5])
+        @rows[1][6] = Pawn.new(:white, self, [1,6])
+        @rows[1][7] = Pawn.new(:white, self, [1,7])
+
+        @rows[6][0] = Pawn.new(:black, self, [6,0])
+        @rows[6][1] = Pawn.new(:black, self, [6,1])
+        @rows[6][2] = Pawn.new(:black, self, [6,2])
+        @rows[6][3] = Pawn.new(:black, self, [6,3])
+        @rows[6][4] = Pawn.new(:black, self, [6,4])
+        @rows[6][5] = Pawn.new(:black, self, [6,5])
+        @rows[6][6] = Pawn.new(:black, self, [6,6])
+        @rows[6][7] = Pawn.new(:black, self, [6,7])
 
 
     end
