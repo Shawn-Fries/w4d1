@@ -3,7 +3,7 @@ class Piece
         @color = color
         @board = board
         @pos = pos
-    endx
+    end
 
     def to_s
         
@@ -15,8 +15,8 @@ class Piece
     end
 
     def valid_moves
-        if self.empty?
-            Piece = 
+        # if self.empty?
+        #     Piece = 
     end
 
 end

@@ -5,8 +5,23 @@ class Board
 
     def initialize
         @rows = Array.new(8){Array.new(8)}
-        p @rows
+        p @rows[0]
+        p @rows[0,0]
+        p @rows[0][0]
         @rows[0][0] = Rook.new(:white, self, [0,0])
+        @rows[0][7] = Rook.new(:white, self, [0,7])
+        @rows[7][0] = Rook.new(:black, self, [7,0])
+        @rows[7][7] = Rook.new(:black, self, [7,7])
+
+        @rows[0][2] = Bishop.new(:white, self, [0,2])
+        @rows[0][5] = Bishop.new(:white, self, [0,5])
+        @rows[7][2] = Bishop.new(:black, self, [7,2])
+        @rows[7][5] = Bishop.new(:black, self, [7,5])
+
+        @rows[0][3] = Queen.new(:white, self, [0,3])
+        @rows[7][3] = Queen.new(:black, self, [7,3])
+
+
 
 
     end
@@ -17,7 +32,7 @@ class Board
     end
 
     def []=(pos, value)
-        @rows[pos] = value
+        @rows[pos.first][pos.last] = value
     end
 
     def move_piece(color, start_pos, end_pos)
