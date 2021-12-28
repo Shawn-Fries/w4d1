@@ -1,5 +1,6 @@
 class Piece
     def initialize(color, board, pos)
+        raise ColorError if color != :white || color != :black
         @color = color
         @board = board
         @pos = pos
