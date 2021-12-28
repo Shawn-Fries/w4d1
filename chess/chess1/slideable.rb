@@ -30,7 +30,8 @@ def moves
         until invalid
             
             if @board.valid_pos?(@pos) && (@board[@pos] == nil || @board[@pos].color != @color)
-                moves << self[@pos.first + i, @pos.last] 
+                moves << [@pos.first + i, @pos.last] 
+                invalid = true if
             else 
                 invalid = true
             end
@@ -41,7 +42,7 @@ def moves
           until invalid
             
             if @board.valid_pos?(@pos) && (@board[@pos] == nil || @board[@pos].color != @color)
-                moves << self[@pos.first - i, @pos.last] 
+                moves << [@pos.first - i, @pos.last] 
             else 
                 invalid = true
             end
@@ -52,7 +53,7 @@ def moves
           until invalid
             
             if @board.valid_pos?(@pos) && (@board[@pos] == nil || @board[@pos].color != @color)
-                moves << self[@pos.first, @pos.last + i] 
+                moves << [@pos.first, @pos.last + i] 
             else 
                 invalid = true
             end
@@ -63,7 +64,7 @@ def moves
           until invalid
             
             if @board.valid_pos?(@pos) && (@board[@pos] == nil || @board[@pos].color != @color)
-                moves << self[@pos.first, @pos.last - i] 
+                moves << [@pos.first, @pos.last - i] 
             else 
                 invalid = true
             end
@@ -76,7 +77,7 @@ def moves
         until invalid
             
             if @board.valid_pos?(@pos) && (@board[@pos] == nil || @board[@pos].color != @color)
-                moves << self[@pos.first + i, @pos.last + i] 
+                moves << [@pos.first + i, @pos.last + i] 
             else 
                 invalid = true
             end
@@ -87,7 +88,7 @@ def moves
           until invalid
             
             if @board.valid_pos?(@pos) && (@board[@pos] == nil || @board[@pos].color != @color)
-                moves << self[@pos.first - i, @pos.last - i] 
+                moves << [@pos.first - i, @pos.last - i] 
             else 
                 invalid = true
             end
@@ -98,7 +99,7 @@ def moves
           until invalid
             
             if @board.valid_pos?(@pos) && (@board[@pos] == nil || @board[@pos].color != @color)
-                moves << self[@pos.first + i, @pos.last - i] 
+                moves << [@pos.first + i, @pos.last - i] 
             else 
                 invalid = true
             end
@@ -109,7 +110,7 @@ def moves
           until invalid
             
             if @board.valid_pos?(@pos) && (@board[@pos] == nil || @board[@pos].color != @color)
-                moves << self[@pos.first - i, @pos.last + i] 
+                moves << [@pos.first - i, @pos.last + i] 
             else 
                 invalid = true
             end

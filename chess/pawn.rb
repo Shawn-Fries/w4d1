@@ -14,8 +14,25 @@ class Pawn < Piece
         possible_move = []
         if self.color == :white
             possible_move << [pos.first + 1, pos.last] 
+            possible_move << [pos.first + 2, pos.last] if at_start_row?
+            if @board.rows[pos.first + 1, pos.last + 1].color == :black
+                possible_move << [pos.first + 1, pos.last + 1] 
+            end
+
+            if @board.rows[pos.first + 1, pos.last - 1].color == :black
+                possible_move << [pos.first + 1, pos.last - 1] 
+            end
         else 
             possible_move << [pos.first - 1, pos.last] 
+            possible_move << [pos.first - 2, pos.last] if at_start_row?
+
+            if @board.rows[pos.first - 1, pos.last + 1].color == :white
+                possible_move << [pos.first - 1, pos.last + 1] 
+            end
+
+            if @board.rows[pos.first - 1, pos.last - 1].color == :white
+                possible_move << [pos.first - 1, pos.last - 1] 
+            end
         end
         
         possible_move.select do |move|
@@ -23,5 +40,10 @@ class Pawn < Piece
         end
 
     end
+    
+    def at_start_row?
+        (self.color == :white && self.pos.first == 1 ) || (self.color == :black && self.pos.first == 6)
+    end
+
 
 end
