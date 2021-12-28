@@ -3,14 +3,16 @@ require_relative "Rook.rb"
 require_relative "bishop.rb"
 require_relative "queen.rb"
 require_relative "king.rb"
+require_relative "knight.rb"
+require_relative "pawn.rb"
 class Board
     attr_reader :rows
 
     def initialize
         @rows = Array.new(8){Array.new(8)}
-        p @rows[0]
-        p @rows[0,0]
-        p @rows[0][0]
+        # p @rows[0]
+        # p @rows[0,0]
+        # p @rows[0][0]
         @rows[0][0] = Rook.new(:white, self, [0,0])
         @rows[0][7] = Rook.new(:white, self, [0,7])
         @rows[7][0] = Rook.new(:black, self, [7,0])
@@ -62,7 +64,7 @@ class Board
         @rows[pos.first][pos.last] = value
     end
 
-    def move_piece(color, start_pos, end_pos)
+    def move_piece(start_pos, end_pos)
         raise "no piece in that location" if @rows[start_pos.first][start_pos.last] == nil
         raise "invalid move" unless valid_pos?(end_pos)
         @rows[end_pos.first][end_pos.last] = @rows[start_pos.first][start_pos.last]

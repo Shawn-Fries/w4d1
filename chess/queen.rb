@@ -1,6 +1,6 @@
 require_relative "chess1/slideable.rb"
 class Queen < Piece
-    include slideable
+    include Slideable
     attr_reader :color, :pos
     def initialize(color, board, pos)
         super
